@@ -1,0 +1,6 @@
+package com.example.ewizyta.doctor;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface DoctorRepository extends CrudRepository<Doctor, Long> {
+}
