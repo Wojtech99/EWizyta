@@ -1,0 +1,11 @@
+server:
+  port: 9092
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  liquibase:
+    change-log: classpath:/db.changelog.master.xml
+    contexts: prod,prod
