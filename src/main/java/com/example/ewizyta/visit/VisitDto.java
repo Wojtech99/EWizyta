@@ -75,7 +75,10 @@ public class VisitDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VisitDto visitDto = (VisitDto) o;
-        return Objects.equals(id, visitDto.id) && Objects.equals(illness, visitDto.illness) && Objects.equals(description, visitDto.description) && Objects.equals(prescription, visitDto.prescription) && Objects.equals(patient, visitDto.patient) && Objects.equals(doctor, visitDto.doctor);
+        return Objects.equals(id, visitDto.id) && Objects.equals(illness, visitDto.illness)
+                && Objects.equals(description, visitDto.description) &&
+                Objects.equals(prescription, visitDto.prescription) &&
+                Objects.equals(patient, visitDto.patient) && Objects.equals(doctor, visitDto.doctor);
     }
 
     @Override

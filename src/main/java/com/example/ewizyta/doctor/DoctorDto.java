@@ -92,6 +92,22 @@ public class DoctorDto {
         this.patientQueue = patientQueue;
     }
 
+    public void addVisit(Visit visit) {
+        this.pastVisits.add(visit);
+    }
+
+    public void deleteVisit(Visit visit){
+        this.pastVisits.remove(visit);
+    }
+
+    public void addPatientToQueue(Patient patient){
+        this.patientQueue.add(patient);
+    }
+
+    public void removePatientFromQueue(Patient patient) {
+        this.patientQueue.remove(patient);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

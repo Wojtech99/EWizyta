@@ -103,6 +103,14 @@ public class PatientDto {
         this.pastVisits = pastVisits;
     }
 
+    public void addVisit(Visit visit) {
+        this.pastVisits.add(visit);
+    }
+
+    public void deleteVisit(Visit visit){
+        this.pastVisits.remove(visit);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
