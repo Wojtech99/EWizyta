@@ -98,15 +98,13 @@ public class Patient {
         this.role = role;
     }
 
+    public void setPastVisits(Set<Visit> pastVisits) {
+        this.pastVisits = pastVisits;
+    }
+
     public Set<Visit> getPastVisits() {
         return pastVisits;
     }
 
-    public void addVisit(Visit visit) {
-        this.pastVisits.add(visit);
-    }
 
-    public void deleteVisit(Visit visit){
-        this.pastVisits.remove(visit);
-    }
 }

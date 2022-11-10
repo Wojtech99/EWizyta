@@ -23,6 +23,12 @@ public class Visit {
 
     public Visit(){}
 
+    public Visit(String illness, String description, String prescription) {
+        this.illness = illness;
+        this.description = description;
+        this.prescription = prescription;
+    }
+
     public Long getId() {
         return id;
     }

@@ -74,11 +74,19 @@ public class Doctor {
         this.role = role;
     }
 
-    public void addVisit(Visit visit) {
-        this.pastVisits.add(visit);
+    public Set<Visit> getPastVisits() {
+        return pastVisits;
     }
 
-    public void deleteVisit(Visit visit){
-        this.pastVisits.remove(visit);
+    public void setPastVisits(Set<Visit> pastVisits) {
+        this.pastVisits = pastVisits;
+    }
+
+    public List<Patient> getPatientQueue() {
+        return patientQueue;
+    }
+
+    public void setPatientQueue(List<Patient> patientQueue) {
+        this.patientQueue = patientQueue;
     }
 }
