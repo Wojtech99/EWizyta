@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EWizytaApplication {
+public class EVisitApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EWizytaApplication.class, args);
+		SpringApplication.run(EVisitApplication.class, args);
 	}
 
 }
