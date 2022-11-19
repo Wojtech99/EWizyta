@@ -10,7 +10,8 @@ public class DoctorMapper {
                 doctor.getPassword(),
                 doctor.getRole(),
                 doctor.getPastVisits(),
-                doctor.getPatientQueue()
+                doctor.getPatientQueue(),
+                doctor.getSpecialization()
         );
     }
 
@@ -24,6 +25,7 @@ public class DoctorMapper {
         doctor.setRole(doctorDto.getRole());
         doctor.setPastVisits(doctorDto.getPastVisits());
         doctor.setPatientQueue(doctorDto.getPatientQueue());
+        doctor.setSpecialization(doctorDto.getSpecialization());
 
         return doctor;
     }

@@ -12,12 +12,14 @@ public class DoctorDto {
     private String lastName;
     private String email;
     private String password;
+    private Specialization specialization;
     private Role role;
     private Set<Visit> pastVisits;
     private List<Patient> patientQueue;
 
     public DoctorDto(Long id, String name, String lastName, String email,
-                     String password, Role role, Set<Visit> pastVisits, List<Patient> patientQueue) {
+                     String password, Role role, Set<Visit> pastVisits,
+                     List<Patient> patientQueue, Specialization specialization) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -26,6 +28,7 @@ public class DoctorDto {
         this.role = role;
         this.pastVisits = pastVisits;
         this.patientQueue = patientQueue;
+        this.specialization = specialization;
     }
 
     public Long getId() {
@@ -90,6 +93,14 @@ public class DoctorDto {
 
     public void setPatientQueue(List<Patient> patientQueue) {
         this.patientQueue = patientQueue;
+    }
+
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
     }
 
     public void addVisit(Visit visit) {

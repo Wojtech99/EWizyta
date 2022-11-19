@@ -16,6 +16,7 @@ public class Doctor {
     private String lastName;
     private String email;
     private String password;
+    private Specialization specialization;
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
@@ -27,11 +28,12 @@ public class Doctor {
 
     public Doctor() {}
 
-    public Doctor(String name, String lastName, String email, String password) {
+    public Doctor(String name, String lastName, String email, String password, Specialization specialization) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.specialization = specialization;
     }
 
     public String getName() {
@@ -88,5 +90,13 @@ public class Doctor {
 
     public void setPatientQueue(List<Patient> patientQueue) {
         this.patientQueue = patientQueue;
+    }
+
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
     }
 }
