@@ -3,7 +3,7 @@ package com.example.ewizyta.doctor;
 public class DoctorMapper {
     static DoctorDto map(Doctor doctor) {
         return new DoctorDto(
-                doctor.getRole().getId(),
+                doctor.getId(),
                 doctor.getName(),
                 doctor.getLastName(),
                 doctor.getEmail(),

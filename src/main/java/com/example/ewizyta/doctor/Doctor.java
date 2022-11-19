@@ -36,6 +36,10 @@ public class Doctor {
         this.specialization = specialization;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
