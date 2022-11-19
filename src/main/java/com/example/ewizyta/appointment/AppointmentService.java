@@ -3,6 +3,7 @@ package com.example.ewizyta.appointment;
 import com.example.ewizyta.doctor.DoctorDto;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -26,8 +27,12 @@ public class AppointmentService {
     }
 
     public Set<AppointmentDto> allDoctorsAppointments(DoctorDto doctorDto) {
-        return appointmentRepository.getAllByDoctor_Id(doctorDto.getId()).stream()
-                .map(AppointmentMapper::map)
-                .collect(Collectors.toSet());
+        Set<AppointmentDto> appointmentDtoSet = new HashSet<>();
+
+        appointmentRepository.getAllByDoctor_Id(doctorDto.getId()).ifPresent(appointments ->
+                appointments.forEach(appointment ->
+                        appointmentDtoSet.add(AppointmentMapper.map(appointment))));
+
+        return appointmentDtoSet;
     }
 }
