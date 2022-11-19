@@ -4,6 +4,8 @@ import com.example.ewizyta.doctor.DoctorDto;
 import com.example.ewizyta.patient.PatientDto;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,19 +26,28 @@ public class VisitService {
         return VisitMapper.map(savedVisit);
     }
 
-    public Set<VisitDto> pastAllPatientsVisits(PatientDto patientDto) {
-        return visitRepository.findAllByPatient_Id(patientDto.getId()).stream()
-                .map(VisitMapper::map)
-                .collect(Collectors.toSet());
+    public Optional<Set<VisitDto>> pastAllPatientsVisits(PatientDto patientDto) {
+        Set<VisitDto> visitDtoSet = new HashSet<>();
+
+        visitRepository.findAllByPatient_Id(patientDto.getId()).stream()
+                .forEach(visits -> visits.forEach(visit->
+                        visitDtoSet.add(VisitMapper.map(visit))));
+
+        return Optional.of(visitDtoSet);
+
     }
 
     public void deleteVisit(VisitDto visitDto) {
         visitRepository.deleteById(visitDto.getId());
     }
 
-    public Set<VisitDto> allPastDoctorsVisits(DoctorDto doctorDto) {
-        return visitRepository.findAllByDoctor_Id(doctorDto.getId()).stream()
-                .map(VisitMapper::map)
-                .collect(Collectors.toSet());
+    public Optional<Set<VisitDto>> allPastDoctorsVisits(DoctorDto doctorDto) {
+        Set<VisitDto> visitDtoSet = new HashSet<>();
+
+        visitRepository.findAllByPatient_Id(doctorDto.getId()).stream()
+                .forEach(visits -> visits.forEach(visit->
+                        visitDtoSet.add(VisitMapper.map(visit))));
+
+        return Optional.of(visitDtoSet);
     }
 }
