@@ -35,8 +35,8 @@ public class VisitService {
 
     }
 
-    public void deleteVisit(VisitDto visitDto) {
-        visitRepository.deleteById(visitDto.getId());
+    public void deleteVisit(Long visitId) {
+        visitRepository.deleteById(visitId);
     }
 
     public Set<VisitDto> allPastDoctorsVisits(DoctorDto doctorDto) {

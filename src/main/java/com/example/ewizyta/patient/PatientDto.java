@@ -18,6 +18,8 @@ public class PatientDto {
     private Role role;
     private Set<Visit> pastVisits;
 
+    public PatientDto(){}
+
     public PatientDto(Long id, String name, String lastName, Integer personalId,
                       String email, String password, Date birthDate, Role role, Set<Visit> pastVisits) {
         this.id = id;

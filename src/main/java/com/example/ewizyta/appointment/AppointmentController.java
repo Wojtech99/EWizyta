@@ -19,6 +19,7 @@ public class AppointmentController {
 
     @GetMapping("/add")
     String addAppointment(Model model){
+        //przy spring security wstawić tu pacjenta
         model.addAttribute("appointment", new AppointmentDto());
 
         return "add-appointment";
@@ -43,7 +44,7 @@ public class AppointmentController {
     }
 
     @RequestMapping(
-            value = "delete/{id}",
+            value = "/doctors-list/delete/{id}",
             method = {RequestMethod.DELETE, RequestMethod.GET}
     )
     String deleteAppointment(@PathVariable(name = "id") Long appointmentId) {

@@ -13,6 +13,8 @@ public class VisitDto {
     private Patient patient;
     private Doctor doctor;
 
+    public VisitDto(){}
+
     public VisitDto(Long id, String illness, String description, String prescription, Patient patient, Doctor doctor) {
         this.id = id;
         this.illness = illness;
