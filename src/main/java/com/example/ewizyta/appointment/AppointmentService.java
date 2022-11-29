@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class AppointmentService {
@@ -22,11 +21,11 @@ public class AppointmentService {
         return AppointmentMapper.map(savedAppointment);
     }
 
-    public void deleteAppointment(AppointmentDto appointmentDto) {
-        appointmentRepository.deleteById(appointmentDto.getId());
+    public void deleteAppointment(Long appointmentId) {
+        appointmentRepository.deleteById(appointmentId);
     }
 
-    public Set<AppointmentDto> allDoctorsAppointments(DoctorDto doctorDto) {
+    public Set<AppointmentDto> allDoctorAppointments(DoctorDto doctorDto) {
         Set<AppointmentDto> appointmentDtoSet = new HashSet<>();
 
         appointmentRepository.getAllByDoctor_Id(doctorDto.getId()).ifPresent(appointments ->

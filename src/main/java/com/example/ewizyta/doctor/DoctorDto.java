@@ -17,6 +17,8 @@ public class DoctorDto {
     private Set<Visit> pastVisits;
     private List<Patient> patientQueue;
 
+    public DoctorDto(){}
+
     public DoctorDto(Long id, String name, String lastName, String email,
                      String password, Role role, Set<Visit> pastVisits,
                      List<Patient> patientQueue, Specialization specialization) {
