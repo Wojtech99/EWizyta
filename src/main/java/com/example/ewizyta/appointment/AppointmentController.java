@@ -17,21 +17,21 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    @GetMapping("/add-appointment")
+    @GetMapping("/add")
     String addAppointment(Model model){
         model.addAttribute("appointment", new AppointmentDto());
 
         return "add-appointment";
     }
 
-    @PostMapping("/save-appointment")
+    @PostMapping("/save")
     String saveAppointment(@RequestParam("appointment") AppointmentDto appointmentDto) {
         appointmentService.saveAppointment(appointmentDto);
 
         return "redirect:/";
     }
 
-    @GetMapping("/all-doctor-appointments")
+    @GetMapping("/doctors-list")
     String showAllAppointments(Model model) {
         // przy implementacji spring-security dodać doktora (chodzi o aktywnie zalogowanego doktora)
 
@@ -43,12 +43,12 @@ public class AppointmentController {
     }
 
     @RequestMapping(
-            value = "delete-appointment/{id}",
+            value = "delete/{id}",
             method = {RequestMethod.DELETE, RequestMethod.GET}
     )
     String deleteAppointment(@PathVariable(name = "id") Long appointmentId) {
         appointmentService.deleteAppointment(appointmentId);
 
-        return "redirect:/all-doctor-appointments";
+        return "redirect:/doctors-list";
     }
 }
