@@ -5,7 +5,9 @@ import com.example.ewizyta.patient.PatientDto;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -16,6 +18,10 @@ public class VisitService {
         this.visitRepository = visitRepository;
     }
 
+    public Optional<VisitDto> takeVisit(Long id) {
+        return visitRepository.findById(id)
+                .map(VisitMapper::map);
+    }
 
     public VisitDto saveVisit(VisitDto visitDto) {
         Visit visitToSave = VisitMapper.map(visitDto);
@@ -24,14 +30,10 @@ public class VisitService {
         return VisitMapper.map(savedVisit);
     }
 
-    public Set<VisitDto> pastAllPatientsVisits(PatientDto patientDto) {
-        Set<VisitDto> visitDtoSet = new HashSet<>();
-
-        visitRepository.findAllByPatient_Id(patientDto.getId()).ifPresent(visits ->
-                visits.forEach(visit->
-                        visitDtoSet.add(VisitMapper.map(visit))));
-
-        return visitDtoSet;
+    public Set<VisitDto> pastAllPatientsVisits(Long patientId) {
+        return visitRepository.findAllByPatient_Id(patientId).stream()
+                .map(VisitMapper::map)
+                .collect(Collectors.toSet());
 
     }
 
@@ -39,10 +41,10 @@ public class VisitService {
         visitRepository.deleteById(visitId);
     }
 
-    public Set<VisitDto> allPastDoctorsVisits(DoctorDto doctorDto) {
+    public Set<VisitDto> allPastDoctorsVisits(Long doctorId) {
         Set<VisitDto> visitDtoSet = new HashSet<>();
 
-        visitRepository.findAllByDoctor_Id(doctorDto.getId()).ifPresent(visits ->
+        visitRepository.findAllByDoctor_Id(doctorId).ifPresent(visits ->
                 visits.forEach(visit->
                         visitDtoSet.add(VisitMapper.map(visit))));
 

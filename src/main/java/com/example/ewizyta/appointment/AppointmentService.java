@@ -1,6 +1,5 @@
 package com.example.ewizyta.appointment;
 
-import com.example.ewizyta.doctor.DoctorDto;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -25,10 +24,10 @@ public class AppointmentService {
         appointmentRepository.deleteById(appointmentId);
     }
 
-    public Set<AppointmentDto> allDoctorAppointments(DoctorDto doctorDto) {
+    public Set<AppointmentDto> allDoctorAppointments(Long doctorId) {
         Set<AppointmentDto> appointmentDtoSet = new HashSet<>();
 
-        appointmentRepository.getAllByDoctor_Id(doctorDto.getId()).ifPresent(appointments ->
+        appointmentRepository.getAllByDoctor_Id(doctorId).ifPresent(appointments ->
                 appointments.forEach(appointment ->
                         appointmentDtoSet.add(AppointmentMapper.map(appointment))));
 

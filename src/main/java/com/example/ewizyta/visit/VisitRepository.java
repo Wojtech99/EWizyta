@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface VisitRepository extends CrudRepository<Visit, Long> {
-    Optional<Set<Visit>> findAllByPatient_Id(Long patientId);
+    Set<Visit> findAllByPatient_Id(Long patientId);
 
     Optional<Set<Visit>> findAllByDoctor_Id(Long doctorId);
 }

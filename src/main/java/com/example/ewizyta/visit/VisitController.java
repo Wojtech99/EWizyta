@@ -35,7 +35,7 @@ public class VisitController {
     @GetMapping("/patientName-list")
     String patientList(Model model){
         //przy spring security dodać tu zalogowanego pacjenta
-        Set<VisitDto> patientList = visitService.pastAllPatientsVisits(new PatientDto());
+        Set<VisitDto> patientList = visitService.pastAllPatientsVisits(1l);
 
         model.addAttribute("list", patientList);
 
@@ -45,7 +45,7 @@ public class VisitController {
     @GetMapping("/doctorName-list")
     String doctorList(Model model) {
         //przy spring security dodać tu zalogowanego doktora
-        Set<VisitDto> doctorList = visitService.allPastDoctorsVisits(new DoctorDto());
+        Set<VisitDto> doctorList = visitService.allPastDoctorsVisits(1l);
 
         model.addAttribute("list", doctorList);
 
