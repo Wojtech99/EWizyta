@@ -36,8 +36,8 @@ public class AppointmentResource {
     }
 
     @GetMapping("/list")
-    ResponseEntity<Set<AppointmentDto>> AppointmentsDoctorList(@RequestBody Long doctorId) {
-        Set<AppointmentDto> doctorsList = appointmentService.allDoctorAppointments(doctorId);
+    ResponseEntity<Set<AppointmentDto>> AppointmentsDoctorList(@RequestBody String email) {
+        Set<AppointmentDto> doctorsList = appointmentService.allDoctorAppointments(email);
 
         return ResponseEntity.ok(doctorsList);
     }

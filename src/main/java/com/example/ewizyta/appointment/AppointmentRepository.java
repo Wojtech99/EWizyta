@@ -6,5 +6,5 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface AppointmentRepository extends CrudRepository<Appointment, Long> {
-    Optional<Set<Appointment>> getAllByDoctor_Id(Long id);
+    Optional<Set<Appointment>> getAllByDoctor_Email(String email);
 }

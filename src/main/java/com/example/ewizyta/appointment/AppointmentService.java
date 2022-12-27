@@ -24,10 +24,10 @@ public class AppointmentService {
         appointmentRepository.deleteById(appointmentId);
     }
 
-    public Set<AppointmentDto> allDoctorAppointments(Long doctorId) {
+    public Set<AppointmentDto> allDoctorAppointments(String email) {
         Set<AppointmentDto> appointmentDtoSet = new HashSet<>();
 
-        appointmentRepository.getAllByDoctor_Id(doctorId).ifPresent(appointments ->
+        appointmentRepository.getAllByDoctor_Email(email).ifPresent(appointments ->
                 appointments.forEach(appointment ->
                         appointmentDtoSet.add(AppointmentMapper.map(appointment))));
 
