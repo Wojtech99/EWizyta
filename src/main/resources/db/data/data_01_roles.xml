@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="01-data" author="Wojciech">
+        <insert tableName="role">
+            <column name="name" value="ADMIN"/>
+            <column name="description" value="Ma dostep do wszystkiego"/>
+        </insert>
+        <insert tableName="role">
+            <column name="name" value="DOCTOR"/>
+            <column name="description" value="Ma dostep do funkcjonalnosci lekarzy i pacjentow"/>
+        </insert>
+        <insert tableName="role">
+            <column name="name" value="PATIENT"/>
+            <column name="description" value="Ma dostep do funkcjonalnosci pacjentow"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

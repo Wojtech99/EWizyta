@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <include file="01_create_table_visit.xml" relativeToChangelogFile="true" />
+    <include file="02_create_table_role.xml" relativeToChangelogFile="true" />
+    <include file="03_create_table_doctor.xml" relativeToChangelogFile="true" />
+    <include file="04_create_table_patient.xml" relativeToChangelogFile="true" />
+    <include file="05_create_table_appointment.xml" relativeToChangelogFile="true" />
+    <include file="data/data_01_roles.xml" relativeToChangelogFile="true" />
+    <include file="data/data_02_create_user_admin.xml" relativeToChangelogFile="true" />
+</databaseChangeLog>
