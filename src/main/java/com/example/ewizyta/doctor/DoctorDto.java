@@ -21,7 +21,7 @@ public class DoctorDto {
 
     public DoctorDto(Long id, String name, String lastName, String email,
                      String password, Role role, Set<Visit> pastVisits,
-                     List<Patient> patientQueue, Specialization specialization) {
+                     Specialization specialization) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -29,7 +29,6 @@ public class DoctorDto {
         this.password = password;
         this.role = role;
         this.pastVisits = pastVisits;
-        this.patientQueue = patientQueue;
         this.specialization = specialization;
     }
 

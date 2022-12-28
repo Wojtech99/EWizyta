@@ -22,9 +22,6 @@ public class Doctor {
     private Role role;
     @OneToMany(mappedBy = "doctor")
     private Set<Visit> pastVisits = new HashSet<>();
-    @OneToMany
-    @JoinColumn(name = "patientList")
-    private List<Patient> patientQueue = new LinkedList<>();
 
     public Doctor() {}
 
@@ -86,14 +83,6 @@ public class Doctor {
 
     public void setPastVisits(Set<Visit> pastVisits) {
         this.pastVisits = pastVisits;
-    }
-
-    public List<Patient> getPatientQueue() {
-        return patientQueue;
-    }
-
-    public void setPatientQueue(List<Patient> patientQueue) {
-        this.patientQueue = patientQueue;
     }
 
     public Specialization getSpecialization() {
