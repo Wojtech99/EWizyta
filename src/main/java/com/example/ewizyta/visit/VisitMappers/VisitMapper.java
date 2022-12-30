@@ -1,7 +1,10 @@
-package com.example.ewizyta.visit;
+package com.example.ewizyta.visit.VisitMappers;
+
+import com.example.ewizyta.visit.Visit;
+import com.example.ewizyta.visit.VisitDtos.VisitDto;
 
 public class VisitMapper {
-    static VisitDto map(Visit visit) {
+    public static VisitDto map(Visit visit) {
         return new VisitDto(
                 visit.getId(),
                 visit.getIllness(),
@@ -12,7 +15,7 @@ public class VisitMapper {
         );
     }
 
-    static Visit map(VisitDto visitDto) {
+    public static Visit map(VisitDto visitDto) {
         Visit visit = new Visit(
                 visitDto.getIllness(),
                 visitDto.getDescription(),

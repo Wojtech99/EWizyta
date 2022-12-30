@@ -25,7 +25,6 @@ public class PatientMapper {
                 patientDto.getBirthDate()
         );
 
-        patient.setRole(patient.getRole());
         patient.setPastVisits(patientDto.getPastVisits());
 
         return patient;

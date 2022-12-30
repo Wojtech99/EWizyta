@@ -1,7 +1,7 @@
 package com.example.ewizyta.visit;
 
-import com.example.ewizyta.doctor.DoctorDto;
-import com.example.ewizyta.patient.PatientDto;
+import com.example.ewizyta.visit.VisitDtos.VisitDto;
+import com.example.ewizyta.visit.VisitMappers.VisitMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

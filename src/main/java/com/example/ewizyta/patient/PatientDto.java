@@ -3,16 +3,26 @@ package com.example.ewizyta.patient;
 import com.example.ewizyta.role.Role;
 import com.example.ewizyta.visit.Visit;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.Objects;
 import java.util.Set;
 
 public class PatientDto {
     private Long id;
+    @Size(min = 2)
     private String name;
+    @Size(min = 3)
     private String lastName;
+    @Min(8)
+    @Max(12)
     private Integer personalId;
+    @Email
     private String email;
+    @Size(min = 8, max = 16)
     private String password;
     private Date birthDate;
     private Role role;

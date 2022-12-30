@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Patient Visits</title>
 </head>
 <body>
-
+<table th:remove="all-but-first" th:each="visit: ${list}">
+    <tr>
+        <td><a th:text="|${visit.doctorFullName}|"></a></td>
+        <td><a th:text="|${visit.illness}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>first name last name</a></td>
+        <td><a>illness</a></td>
+    </tr>
+</table>
 </body>
 </html>

@@ -1,14 +1,18 @@
-package com.example.ewizyta.visit;
+package com.example.ewizyta.visit.VisitDtos;
 
 import com.example.ewizyta.doctor.Doctor;
 import com.example.ewizyta.patient.Patient;
 
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class VisitDto {
     private Long id;
+    @Size(min = 7, max = 50)
     private String illness;
+    @Size(min = 15, max = 500)
     private String description;
+    @Size(min = 15, max = 250)
     private String prescription;
     private Patient patient;
     private Doctor doctor;

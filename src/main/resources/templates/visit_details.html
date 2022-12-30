@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>all visits</title>
+</head>
+<body>
+<table th:object="${singleVisit}">
+    <tr>
+        <td><a>Imię i nazwisko doktora: </a></td>
+        <td><a th:text="|*{doctorFullName()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>Specjalizacja doktora: </a></td>
+        <td><a th:text="|*{doctorSpecialization()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>Imię i nazwisko pacjęta: </a></td>
+        <td><a th:text="|*{patientFullName()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>PESEL pacjenta: </a></td>
+        <td><a th:text="|*{patientPersonalId()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>Email pacjenta: </a></td>
+        <td><a th:text="|*{patientEmail()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>Choroba pacjenta: </a></td>
+        <td><a th:text="|*{illness()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>Objawy pacjenta: </a></td>
+        <td><a th:text="|*{description()}|"></a></td>
+    </tr>
+    <tr>
+        <td><a>recepta: </a></td>
+        <td><a th:text="|*{prescription()}|"></a></td>
+    </tr>
+</table>
+</body>
+</html>

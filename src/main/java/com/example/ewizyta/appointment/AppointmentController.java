@@ -74,7 +74,7 @@ public class AppointmentController {
                            @RequestParam("doctorId") Long doctorId) {
         Doctor doctor = doctorService.getDoctorById(doctorId);
 
-        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        final String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Patient currentPatient = patientService.getCurrentLoggedPatient(currentUserEmail);
         appointmentDto.setPatient(currentPatient);
         appointmentDto.setDoctor(doctor);
@@ -91,7 +91,7 @@ public class AppointmentController {
      */
     @GetMapping("/doctors-appointment-list")
     String showAllAppointments(Model model) {
-        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        final String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
 
         Doctor currentLoggedDoctor = doctorService.getDoctorByEmail(currentUserEmail);
        Set<AppointmentDto> doctorsAppointmentSet = appointmentService.allDoctorAppointments(currentLoggedDoctor);
