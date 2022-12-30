@@ -7,7 +7,6 @@ import com.example.ewizyta.patient.PatientService;
 import com.example.ewizyta.visit.VisitDtos.VisitDto;
 import com.example.ewizyta.visit.VisitDtos.VisitDtoThymeleaf;
 import com.example.ewizyta.visit.VisitMappers.VisitDtoThymeleafMapper;
-import com.example.ewizyta.visit.VisitMappers.VisitMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,6 +60,11 @@ public class VisitController {
         return "redirect:/add-visit";
     }
 
+    /**
+     * Show all past patients visit
+     * @param model Model
+     * @return String
+     */
     @GetMapping("/all-patient-visits")
     String patientList(Model model){
         final String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -76,6 +80,11 @@ public class VisitController {
         return "patient_visits";
     }
 
+    /**
+     * show all past doctor visits
+     * @param model Model
+     * @return String
+     */
     @GetMapping("/all-doctors-visits")
     String doctorList(Model model) {
         final String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -90,6 +99,11 @@ public class VisitController {
         return "doctor_visits";
     }
 
+    /**
+     * delete visit
+     * @param visitId Long
+     * @return String
+     */
     @RequestMapping(
             value = "/all-doctors-visits/delete/{id}",
             method = {RequestMethod.DELETE, RequestMethod.GET}
@@ -100,6 +114,12 @@ public class VisitController {
         return "redirect:/all-doctors-visits";
     }
 
+    /**
+     * show single visit
+     * @param visitId Long
+     * @param model Model
+     * @return String
+     */
     @GetMapping("/all-doctors-visits/visit-details/{id}")
     String showVisitDetails(@PathVariable("id") Long visitId, Model model) {
         if (visitService.takeVisit(visitId).isPresent()) {
