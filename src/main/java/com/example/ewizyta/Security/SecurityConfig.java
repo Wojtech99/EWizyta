@@ -14,7 +14,7 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests -> requests
-                .mvcMatchers("/").permitAll()
+                .mvcMatchers("/", "/patient-registration", "/patient-registration/save").permitAll()
                 .mvcMatchers("/**").authenticated()
         );
 

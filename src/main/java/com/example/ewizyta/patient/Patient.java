@@ -4,6 +4,8 @@ import com.example.ewizyta.role.Role;
 import com.example.ewizyta.visit.Visit;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
