@@ -19,7 +19,7 @@ public class VisitController {
     String addVisit(Model model) {
         model.addAttribute("visit", new VisitDto());
 
-        return "new-visit-form";
+        return "new_visit_form";
     }
 
     @PostMapping("/save-visit")

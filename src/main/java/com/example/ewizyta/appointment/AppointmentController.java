@@ -38,7 +38,7 @@ public class AppointmentController {
 
         model.addAttribute("ListOfSpecializations", specializationsList);
 
-        return "add-appointment-01";
+        return "add_appointment_01";
     }
 
     /**
@@ -60,7 +60,7 @@ public class AppointmentController {
         model.addAttribute("appointment", newAppointment);
         model.addAttribute("doctorsList", doctorsWithParamSpecialization);
 
-        return "add-appointment-02";
+        return "add_appointment_02";
     }
 
     /**
@@ -98,7 +98,7 @@ public class AppointmentController {
 
        model.addAttribute("list", doctorsAppointmentSet);
 
-       return "doctor-appointments";
+       return "doctor_appointments";
     }
 
     /**
