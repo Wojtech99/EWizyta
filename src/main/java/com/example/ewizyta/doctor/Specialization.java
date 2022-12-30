@@ -1,5 +1,8 @@
 package com.example.ewizyta.doctor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Specialization {
     ALLERGOLOGY("Alergologia"),
     ANAESTHESIOLOGY_AND_INTENSIVE_CARE("Anestezjologia i intensywna terapia"),
@@ -84,5 +87,25 @@ public enum Specialization {
 
     String getDescription(){
         return this.description;
+    }
+
+    public static List<String> getSpecializationsDescription() {
+        List<String> descriptionList = new ArrayList<>();
+
+        for (Specialization specialization : Specialization.values()) {
+            descriptionList.add(specialization.getDescription());
+        }
+
+        return descriptionList;
+    }
+
+    public static Specialization getSpecializationByDescription(String description) {
+        for (Specialization specialization : Specialization.values()) {
+            if (specialization.description.equals(description)) {
+                return specialization;
+            }
+        }
+
+        return null;
     }
 }

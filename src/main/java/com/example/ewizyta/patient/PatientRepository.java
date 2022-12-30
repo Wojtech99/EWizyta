@@ -8,4 +8,6 @@ import java.util.List;
 public interface PatientRepository extends CrudRepository<Patient, Long> {
     @Query("select p from Patient p")
     List<Patient> getAll();
+
+    Patient getPatientsByEmail(String email);
 }

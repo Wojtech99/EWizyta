@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>doctor appoinments</title>
 </head>
 <body>
+<table th:remove="all-but-first" th:each="appointment: ${list}">
+    <tr>
+        <td><a th:text="|${appointment.dateAppointment}|"></a></td>
+        <td><a th:text="|${appointment.patient}|"></a></td>
+        <td><a href="#" th:href="@{|/doctors-appointment-list/delete/${appointment.id}|}">Usuń</a></td>
+    </tr>
+    <tr>
+        <td><a>date</a></td>
+        <td><a>patient</a></td>
+        <td><a href="#">Usuń</a></td>
 
+    </tr>
+</table>
 </body>
 </html>

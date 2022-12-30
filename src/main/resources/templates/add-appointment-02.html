@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Appointment step 01</title>
+</head>
+<body>
+<form method="post" th:action="@{|/save-appointment|}" th:object="${appointment}">
+    <table>
+        <tr>
+            <td>date:</td>
+            <td><input th:field="*{dateAppointment}" th:text="*{dateAppointment}" type="hidden"></td>
+        </tr>
+        <tr>
+            <td><select name="doctorId">
+                <option value="0">Select doctor</option>
+                <option th:each="doctor: ${doctorsList}" th:value="${doctor.id}" th:text="|${doctor.name} ${doctor.lastName}|"></option>
+            </select></td>
+        </tr>
+    </table>
+    <button type="submit">Zapisz spotkanie</button>
+</form>
+</body>
+</html>

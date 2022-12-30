@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Appointment step 01</title>
+</head>
+<body>
+<form method="get" th:action="@{|/add-appointment-02|}">
+    <table>
+        <tr>
+            <td><select name="specialization">
+                <option value="0">Select specialization</option>
+                <option th:each="specialization: ${ListOfSpecializations}" th:value="${specialization}" th:text="${specialization}"></option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>data: </td>
+            <td><input type="date" name="date"></td>
+        </tr>
+    </table>
+    <button type="submit">Dalej</button>
+</form>
+</body>
+</html>

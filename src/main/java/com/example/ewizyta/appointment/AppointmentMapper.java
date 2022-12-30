@@ -4,7 +4,7 @@ public class AppointmentMapper {
     static AppointmentDto map(Appointment appointment) {
         AppointmentDto appointmentDto = new AppointmentDto();
 
-        appointmentDto.setId(appointmentDto.getId());
+        appointmentDto.setId(appointment.getId());
         appointmentDto.setDateAppointment(appointment.getDateAppointment());
         appointmentDto.setDoctor(appointment.getDoctor());
         appointmentDto.setPatient(appointment.getPatient());

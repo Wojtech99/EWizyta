@@ -1,5 +1,6 @@
 package com.example.ewizyta.appointment;
 
+import com.example.ewizyta.doctor.Doctor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -36,8 +37,8 @@ public class AppointmentResource {
     }
 
     @GetMapping("/list")
-    ResponseEntity<Set<AppointmentDto>> AppointmentsDoctorList(@RequestBody String email) {
-        Set<AppointmentDto> doctorsList = appointmentService.allDoctorAppointments(email);
+    ResponseEntity<Set<AppointmentDto>> AppointmentsDoctorList(@RequestBody Doctor doctor) {
+        Set<AppointmentDto> doctorsList = appointmentService.allDoctorAppointments(doctor);
 
         return ResponseEntity.ok(doctorsList);
     }
