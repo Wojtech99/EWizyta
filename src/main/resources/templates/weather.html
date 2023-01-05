@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pogoda</title>
+</head>
+<body>
+<h2>Weather</h2>
+<table th:object="${weather}">
+  <tr>
+    <td><a>Kraj: </a></td>
+    <td><a th:text="|*{country}|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Miasto: </a></td>
+    <td><a th:text="|*{city}|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Data i godzina: </a></td>
+    <td><a th:text="|*{locateDateTime}|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Temperatura: </a></td>
+    <td><a th:text="|*{temperature}|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Prędkość wiatru: </a></td>
+    <td><a th:text="|*{windSpeed}|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Ciśnienie: </a></td>
+    <td><a th:text="|*{pressure}mb|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Wilgotność: </a></td>
+    <td><a th:text="|*{humidity}%|"></a></td>
+  </tr>
+  <tr>
+    <td><a>Zachmurzenie: </a></td>
+    <td><a th:text="|*{cloud}%|"></a></td>
+  </tr>
+  <tr>
+    <td><img src="../static" th:src="*{icon}" /></td>
+    <td><a th:text="|*{weatherText}|"></a></td>
+  </tr>
+
+</table>
+</body>
+</html>

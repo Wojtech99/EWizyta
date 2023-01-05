@@ -8,3 +8,6 @@ spring:
       ddl-auto: validate
   liquibase:
     change-log: classpath:db/master.xml
+
+weather:
+  apikey: 62c666d36d7f4535abe95314230301
