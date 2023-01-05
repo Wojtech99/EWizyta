@@ -57,7 +57,7 @@ public class WeatherMapApi implements WeatherApi{
                     HttpMethod.GET,
                     httpEntity,
                     String.class,
-                    getParams());
+                    this.getParams());
 
             return response.getBody();
 
