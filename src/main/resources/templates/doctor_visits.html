@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>all visits</title>
-</head>
+<head th:replace="fragments::head(title='Twoje wizyty')"></head>
 <body>
+<header th:replace="fragments::header"></header>
+
+<main>
 <table th:remove="all-but-first" th:each="visit: ${DoctorList}">
     <tr>
         <td><a th:text="|${visit.patientFullName}|"></a></td>
@@ -19,5 +19,8 @@
         <td><a href="#">Szczegóły</a></td>
     </tr>
 </table>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

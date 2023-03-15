@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-    <meta charset="UTF-8">
-    <title>index</title>
-</head>
+<head th:replace="fragments::head(title='Strona główna')"></head>
 <body>
-<h1>Index</h1>
-<form method="post" th:action="@{/go-to-weather}">
-    <table>
-        <tr>
-            <td>Miasto: </td>
-            <td><input name="city" type="text"></td>
-        </tr>
-    </table>
-    <button type="submit">Pokaż pogodę</button>
-</form>
+<header th:replace="fragments::header"></header>
+
+<main>
+    <h1>Strona główna</h1>
+    <form method="post" th:action="@{/go-to-weather}">
+        <table>
+            <tr>
+                <td>Miasto: </td>
+                <td><input name="city" type="text"></td>
+            </tr>
+        </table>
+        <button type="submit">Pokaż pogodę</button>
+    </form>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

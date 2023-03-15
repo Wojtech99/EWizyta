@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Pogoda</title>
-</head>
+<head th:replace="fragments::head(title='Pogoda')"></head>
 <body>
+<header th:replace="fragments::header"></header>
+
+<main>
 <h2>Weather</h2>
 <table th:object="${weather}">
   <tr>
@@ -25,7 +25,7 @@
   </tr>
   <tr>
     <td><a>Prędkość wiatru: </a></td>
-    <td><a th:text="|*{windSpeed}|"></a></td>
+    <td><a th:text="|*{windSpeed} km/h|"></a></td>
   </tr>
   <tr>
     <td><a>Ciśnienie: </a></td>
@@ -45,5 +45,8 @@
   </tr>
 
 </table>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

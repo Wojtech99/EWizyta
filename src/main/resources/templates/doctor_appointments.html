@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>doctor appoinments</title>
-</head>
+<head th:replace="fragments::head(title='Twoje spotkania')"></head>
 <body>
+<header th:replace="fragments::header"></header>
+
+<main>
 <table th:remove="all-but-first" th:each="appointment: ${list}">
     <tr>
         <td><a th:text="|${appointment.dateAppointment}|"></a></td>
-        <td><a th:text="|${appointment.patient}|"></a></td>
+        <td><a th:text="|${appointment.patient.name} ${appointment.patient.lastName}|"></a></td>
+        <td><a th:text="|${appointment.patient.personalId}|"></a></td>
         <td><a href="#" th:href="@{|/doctors-appointment-list/delete/${appointment.id}|}">Usuń</a></td>
     </tr>
     <tr>
         <td><a>date</a></td>
         <td><a>patient</a></td>
+        <td><a>patient pesel</a></td>
         <td><a href="#">Usuń</a></td>
 
     </tr>
 </table>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

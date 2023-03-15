@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Appointment step 01</title>
-</head>
+<head th:replace="fragments::head(title='Zamów Wizytę')"></head>
 <body>
+<header th:replace="fragments::header"></header>
+
+<main>
 <form method="post" th:action="@{|/save-appointment|}" th:object="${appointment}">
     <table>
         <tr>
@@ -20,5 +20,8 @@
     </table>
     <button type="submit">Zapisz spotkanie</button>
 </form>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

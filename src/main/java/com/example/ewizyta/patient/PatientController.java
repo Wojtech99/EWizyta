@@ -27,7 +27,7 @@ public class PatientController {
     }
 
     /**
-     * save new patient
+     * create new patient
      * @param patientDto PatientDto
      * @return String
      */

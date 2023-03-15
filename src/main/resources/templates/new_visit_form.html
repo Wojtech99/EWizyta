@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>New Visit</title>
-</head>
+<head th:replace="fragments::head(title='Utwórz wizytę')"></head>
 <body>
+<header th:replace="fragments::header"></header>
+
+<main>
 <form method="post" th:action="@{/save-visit}" th:object="${visit}">
     <table>
         <tr>
@@ -29,5 +29,8 @@
     </table>
     <button type="submit">stwórz wizytę</button>
 </form>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

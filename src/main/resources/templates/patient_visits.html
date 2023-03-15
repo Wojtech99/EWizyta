@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Patient Visits</title>
-</head>
+<head th:replace="fragments::head(title='Wizyty pacjenta')"></head>
 <body>
-<table th:remove="all-but-first" th:each="visit: ${list}">
-    <tr>
-        <td><a th:text="|${visit.doctorFullName}|"></a></td>
-        <td><a th:text="|${visit.illness}|"></a></td>
-    </tr>
-    <tr>
-        <td><a>first name last name</a></td>
-        <td><a>illness</a></td>
-    </tr>
+<header th:replace="fragments::header"></header>
+
+<main>
+<table>
+    <thead>
+        <tr>
+            <td><a>Choroba</a></td>
+            <td><a>Recepta</a></td>
+            <td><a>Imię i nazawisko Doktora</a></td>
+            <td><a>Specjalizacja Doktora</a></td>
+        </tr>
+    </thead>
+    <tbody th:remove="all-but-first" th:each="visit: ${list}">
+        <tr>
+            <td><a th:text="|${visit.illness}|"></a></td>
+            <td><a th:text="|${visit.prescription()}|"></a></td>
+            <td><a th:text="|${visit.doctorFullName()}|"></a></td>
+            <td><a th:text="|${visit.doctorSpecialization()}|"></a></td>
+        </tr>
+        <tr>
+            <td><a>Illness</a></td>
+            <td><a>Prescription</a></td>
+            <td><a>Doctor name</a></td>
+            <td><a>Doctor specialization</a></td>
+        </tr>
+    </tbody>
 </table>
+</main>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>

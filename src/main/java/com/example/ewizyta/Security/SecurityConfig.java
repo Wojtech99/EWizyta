@@ -14,8 +14,12 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests -> requests
-                .mvcMatchers("/", "/patient-registration",
-                        "/patient-registration/save", "/weather/**").permitAll()
+                .mvcMatchers("/", "/patient-registration/**", "/go-to-weather", "/weather/**").permitAll()
+                .mvcMatchers("/doctors-appointment-list/**").hasAnyRole("ADMIN", "DOCTOR")
+                .mvcMatchers("/all-patient-visits").hasAnyRole("ADMIN", "PATIENT")
+                .mvcMatchers("/all-doctors-visits/**").hasAnyRole("ADMIN", "DOCTOR")
+                .mvcMatchers("/add-visit", "/save-visit").hasAnyRole("ADMIN", "DOCTOR")
+                .mvcMatchers("/styles/**").permitAll()
                 .mvcMatchers("/**").authenticated()
 
         );

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Registracion form</title>
-</head>
+<head th:replace="fragments::head(title='Rejestracja')"></head>
 <body>
+
+<div class="login">
+<main class="form-signin w-100 m-auto">
+  <h1 class="h3 mb-3 fw-normal">Zarejestruj się</h1>
 <form method="post" th:action="@{/patient-registration/save}" th:object="${patient}">
   <table>
     <tr>
@@ -40,5 +41,9 @@
   </table>
   <button type="submit">Zarejestruj się</button>
 </form>
+</main>
+</div>
+
+<footer th:replace="fragments::footer"></footer>
 </body>
 </html>
